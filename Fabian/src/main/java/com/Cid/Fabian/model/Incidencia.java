@@ -30,14 +30,16 @@ public class Incidencia {
     @Size(min = 2, max = 50)
     private String usuarioQueReporta;
 
-    private String fechaRegistro;
+    @Min(value = 2000, message = "No es posible ingresar valores menores a 2000")
+    @Max(value = 2026, message = "No es posible ingresar valores mayores a 2026")
+    private int añoRegistro;
 
-    public Incidencia(String descripcionProblema, EstadoIncidencia estadoIncidencia, int nivelPrioridad, String usuarioQueReporta, String fechaRegistro){
+    public Incidencia(String descripcionProblema, EstadoIncidencia estadoIncidencia, int nivelPrioridad, String usuarioQueReporta, int añoRegistro){
         this.id=contador.getAndIncrement();
-        this.descripcionProblema = descripcionProblema.setDescripcionProblema();
-        this.estadoIncidencia = setEstadoIncidencia(estadoIncidencia);
-        this.nivelPrioridad = setNivelPrioridad(nivelPrioridad);
-        this.usuarioQueReporta = setUsuarioQueReporta(usuarioQueReporta);
-        this.fechaRegistro = setFechaRegistro(fechaRegistro);
+        this.descripcionProblema = descripcionProblema;
+        this.estadoIncidencia = estadoIncidencia;
+        this.nivelPrioridad = nivelPrioridad;
+        this.usuarioQueReporta = usuarioQueReporta;
+        this.añoRegistro = añoRegistro;
     }
 }

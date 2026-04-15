@@ -1,5 +1,7 @@
 package com.Cid.Fabian.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,10 @@ public class IncidenciaService {
 
     public Incidencia create(Incidencia incidencia) {
         return incidenciaRepository.crear(incidencia);
+    }
+
+    public List<Incidencia> readAll() {
+        return incidenciaRepository.listar();
     }
     
 }

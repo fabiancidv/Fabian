@@ -16,5 +16,9 @@ public class IncidenciaRepository {
         return incidencia;
     }
 
+    public List<Incidencia> listar() {
+        return incidencias;
+    }
+
     
 }
