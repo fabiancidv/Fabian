@@ -54,5 +54,15 @@ public class IncidenciaRepository {
         return null;
     }
 
+    public List<Incidencia> buscarPorAño(int year) {
+        List<Incidencia> incidenciasPorAño = new ArrayList<>(); 
+        for (Incidencia incidencia : incidencias){
+            if (year == incidencia.getAñoRegistro())
+                incidenciasPorAño.add(incidencia);
+        return incidenciasPorAño;
+        }
+        return null;
+    }
+
     
 }

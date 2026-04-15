@@ -34,5 +34,9 @@ public class IncidenciaService {
     public String delete(int id, Incidencia incidencia) {
         return incidenciaRepository.borrarPorId(id, incidencia);
     }
+
+    public List<Incidencia> readByYear(int year) {
+        return incidenciaRepository.buscarPorAño(year);
+    }
     
 }

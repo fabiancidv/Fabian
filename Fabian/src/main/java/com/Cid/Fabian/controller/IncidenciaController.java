@@ -56,7 +56,7 @@ public class IncidenciaController {
         if (incidenciaById != null){
             return ResponseEntity.ok(incidenciaById);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No fue posible encontrar la id");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No fue posible encontrar la incidencia");
     }
 
     @PutMapping("listar/{id}")
@@ -73,8 +73,18 @@ public class IncidenciaController {
     public ResponseEntity<?> deleteIncidencia(@PathVariable int id, @Valid @RequestBody Incidencia incidencia){
         String incidenciaBorrar = incidenciaService.delete(id, incidencia);
         if (incidenciaBorrar != null){
-            return ResponseEntity<?>
+            return ResponseEntity.ok(incidenciaBorrar); 
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No fue posible encontrar la incidencia");
     }
+
+    @GetMapping("listar/{year}")
+    public ResponseEntity<?> getIncidenciaYear(@PathVariable int year) {
+        List<Incidencia> incidenciaYear = incidenciaService.readByYear(year);
+        if (incidenciaYear != null){
+            return ResponseEntity.ok(incidenciaYear);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Incidencias no encontradas");
+    }
+    
 }
